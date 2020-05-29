@@ -1,0 +1,11 @@
+body {
+    background: black;
+    color: white;
+}
+.header {
+    display: flex;
+    justify-content: center;
+}
+.table-dark {
+    background: black!important;
+}
