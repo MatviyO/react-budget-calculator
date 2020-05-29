@@ -4,7 +4,6 @@ const ExpenseItem = () =>  {
     return (
         <div>
             exprense item
-
         </div>
     );
 
