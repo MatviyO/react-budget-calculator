@@ -5,17 +5,12 @@ const ExpenseItem = ({expenses, index}) => {
     const {id, charge, amount} = expenses
     return (
         <tr>
-            <th scope="row">index</th>
-            <td>{charge}</td>
-            <td>{amount}</td>
+            <th scope="row">{expenses.index}</th>
+            <td>{expenses.charge}</td>
+            <td>{expenses.amount}</td>
+            <td><a className="button-back"><MdEdit/></a></td>
+            <td><a className="button-back"><MdDelete/></a></td>
         </tr>
-        // <li>
-        //     <div className="info">
-        //         <span className="expense">{charge}</span>
-        //         <span className="amount">{amount}</span>
-        //
-        //     </div>
-        // </li>
     );
 
 }

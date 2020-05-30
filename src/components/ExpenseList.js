@@ -12,17 +12,15 @@ const ExpenseList = ({expenses}) => {
                         <th scope="col">#</th>
                         <th scope="col">First</th>
                         <th scope="col">Handle</th>
+                        <th scope="col">edit</th>
+                        <th scope="col">delete</th>
                     </tr>
                     </thead>
                     <tbody>
 
                     {expenses.map(expenses => {
-                        return (
-                            <tr>
-                                <th scope="row">{expenses.index}</th>
-                                <td>{expenses.charge}</td>
-                                <td>{expenses.amount}</td>
-                            </tr>)
+                        return <ExpenseItem expenses={expenses} key={expenses.id} />
+
                     })}
                     </tbody>
                 </table>
