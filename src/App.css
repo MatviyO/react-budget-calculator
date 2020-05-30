@@ -134,3 +134,7 @@ body {
     background: black;
     color: white;
 }
+.alert {
+    border: 1px solid white;
+    color: aqua;
+}

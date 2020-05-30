@@ -28,11 +28,19 @@ function App() {
     const handleAmount = e => {
         setAmount(e.target.value);
     }
+    const handleAlert = ({type,text}) => {
+        setAlert({show: true, type, text})
+        setTimeout(() => {
+            setAlert({show: false})
+        }, 3000)
+
+    }
     const handleSubmit = e => {
         e.preventDefault();
         if (charge !== '' && amount > 0) {
             const singleExpenses = {id: uuid(), charge: charge, amount: amount }
             setExpenses([...expenses, singleExpenses])
+            handleAlert({type: 'success', text: 'Budget added'})
             setCharge('')
             setAmount('')
         } else {
@@ -42,7 +50,7 @@ function App() {
 
     return (
         <>
-            <Alert/>
+            {alert.show && <Alert type={alert.type} text={alert.text}/>}
             <div className="container-lg">
                 <Title title="Budget calculator"/>
                 <ExpenseForm charge={charge} amount={amount} handleAmount={handleAmount}
