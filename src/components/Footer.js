@@ -12,7 +12,7 @@ export default function Footer({expenses}){
                     </div>
                     <div className="flex-block mt-5">
                         <h2>Total Spending : $ {expenses.reduce((acc, curr)=> {
-                            return (acc += curr.amount)
+                            return (acc += parseInt(curr.amount))
                         }, 0)}</h2>
                     </div>
                 </div>
