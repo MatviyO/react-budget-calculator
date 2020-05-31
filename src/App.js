@@ -67,7 +67,8 @@ function App() {
             {alert.show && <Alert type={alert.type} text={alert.text}/>}
             <div className="container-lg">
                 <Title title="Budget calculator"/>
-                <ExpenseForm charge={charge} amount={amount} handleAmount={handleAmount}
+                <ExpenseForm edit={edit}
+                    charge={charge} amount={amount} handleAmount={handleAmount}
                 handleCharge={handleCharge} handleSubmit={handleSubmit}/>
                 <ExpenseList handleEdit={handleEdit} handleDelete={handleDelete}
                              expenses={expenses}/>

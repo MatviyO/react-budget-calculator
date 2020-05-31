@@ -1,7 +1,7 @@
 import React from 'react';
 import {BsArrowRight} from "react-icons/all";
 
-const ExpenseForm = ({charge, amount, handleCharge, handleAmount, handleSubmit}) => {
+const ExpenseForm = ({charge, amount, handleCharge, handleAmount, handleSubmit, edit}) => {
     return (
         <form onSubmit={handleSubmit}>
             <div className="row mt-3">
