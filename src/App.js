@@ -20,6 +20,8 @@ function App() {
     const [charge, setCharge] = useState('')
 
     const [amount, setAmount] = useState('')
+    const [edit, setEdit] = useState(false)
+    const [id, setId] = useState(0)
     const [alert, setAlert] = useState({show: false})
 
     const handleCharge = e => {
@@ -33,8 +35,20 @@ function App() {
         setTimeout(() => {
             setAlert({show: false})
         }, 3000)
+    }
+    const clearItems = () => {
+        setExpenses([])
+    }
+    const handleDelete = id => {
+        const exp = expenses.filter(item => item.id !== id)
+        setExpenses(exp)
+        handleAlert({type: 'danger', text: 'item deleted'})
 
     }
+    const handleEdit = id => {
+
+    }
+
     const handleSubmit = e => {
         e.preventDefault();
         if (charge !== '' && amount > 0) {
@@ -44,7 +58,7 @@ function App() {
             setCharge('')
             setAmount('')
         } else {
-            //null
+            handleAlert({type:'danger', text: `Charge ang aount cant be empy`})
         }
     }
 
@@ -55,8 +69,9 @@ function App() {
                 <Title title="Budget calculator"/>
                 <ExpenseForm charge={charge} amount={amount} handleAmount={handleAmount}
                 handleCharge={handleCharge} handleSubmit={handleSubmit}/>
-                <ExpenseList expenses={expenses}/>
-                <Footer expenses={expenses}/>
+                <ExpenseList handleEdit={handleEdit} handleDelete={handleDelete}
+                             expenses={expenses}/>
+                <Footer clearItems={clearItems} expenses={expenses}/>
             </div>
         </>
     );

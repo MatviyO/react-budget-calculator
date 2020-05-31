@@ -2,13 +2,13 @@ import React from 'react';
 import {BsArrowRight} from "react-icons/all";
 import {MdDelete} from "react-icons/all";
 
-export default function Footer({expenses}){
+export default function Footer({expenses, clearItems}){
 
         return (
             <>
                 <div className="col-md-12 mt-5">
                     <div className="flex-block">
-                        {expenses.length > 0 && <button type="submit" className="class-btn">Clear <MdDelete/></button>}
+                        {expenses.length > 0 && <button onClick={clearItems} type="submit" className="class-btn">Clear <MdDelete/></button>}
                     </div>
                     <div className="flex-block mt-5">
                         <h2>Total Spending : $ {expenses.reduce((acc, curr)=> {

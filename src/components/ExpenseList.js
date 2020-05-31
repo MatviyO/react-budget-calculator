@@ -1,7 +1,7 @@
 import React from 'react';
 import ExpenseItem from "./ExpenseItem";
 
-const ExpenseList = ({expenses}) => {
+const ExpenseList = ({expenses, handleEdit, handleDelete}) => {
     return (
         <>
             <div className="row mt-3">
@@ -19,7 +19,8 @@ const ExpenseList = ({expenses}) => {
                     <tbody>
 
                     {expenses.map(expenses => {
-                        return <ExpenseItem expenses={expenses} key={expenses.id} />
+                        return <ExpenseItem handleEdit={handleEdit}
+                                            handleDelete={handleDelete} expenses={expenses} key={expenses.id} />
 
                     })}
                     </tbody>
