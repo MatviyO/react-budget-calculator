@@ -46,15 +46,31 @@ function App() {
 
     }
     const handleEdit = id => {
+        let expenses = expenses.find(item => item.id === id)
+        let {charge, amount} = expenses;
+        setCharge(charge);
+        setAmount(amount);
+        setEdit(true)
+        setId(id);
 
     }
 
     const handleSubmit = e => {
         e.preventDefault();
         if (charge !== '' && amount > 0) {
-            const singleExpenses = {id: uuid(), charge: charge, amount: amount }
-            setExpenses([...expenses, singleExpenses])
-            handleAlert({type: 'success', text: 'Budget added'})
+            if(edit) {
+                let tempEx = expenses.map(item => {
+                    return item.id === id? {...item, charge: charge, amount: amount} : item
+                })
+                setExpenses(tempEx);
+                setEdit(false)
+                handleAlert({type: 'success', text: 'Budget edit'})
+
+            } else {
+                const singleExpenses = {id: uuid(), charge: charge, amount: amount }
+                setExpenses([...expenses, singleExpenses])
+                handleAlert({type: 'success', text: 'Budget added'})
+            }
             setCharge('')
             setAmount('')
         } else {

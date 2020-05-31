@@ -18,7 +18,7 @@ const ExpenseForm = ({charge, amount, handleCharge, handleAmount, handleSubmit, 
                 </div>
                 <div className="col-md-12 mt-4">
                     <div className="flex-block">
-                        <button type="submit" className="class-btn">Submit <BsArrowRight/></button>
+                        <button type="submit" className="class-btn">{ edit ? 'Edit' : 'submit'} <BsArrowRight/></button>
                     </div>
                 </div>
 
